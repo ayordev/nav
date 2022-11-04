@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>navbar</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="nav" id="nav">
+        <div class="header-text">pink tailwind starter kit</div>
+        <div class="buttons">
+          <div class="button">
+            <i class="fa-brands fa-square-facebook"></i
+            ><span class="share">share</span>
+          </div>
+          <div class="button">
+            <i class="fa-brands fa-twitter"></i><span class="tweet">tweet</span>
+          </div>
+          <div class="button">
+            <i class="fab fa-pinterest"></i><span class="pin">pin</span>
+          </div>
+        </div>
+      </div>
+
+      <input type="color" id="input-button" />
+    </div>
+
+    <script>
+      const inputButton = document.getElementById('input-button');
+      const nav = document.getElementById('nav');
+      // const buttons = document.querySelectorAll('.button');
+
+      // function handleMouseOver() {
+      //   let color = localStorage.getItem('color');
+      //   this.style.backgroundColor = color;
+      // }
+
+      // buttons.forEach((button) =>
+      //   button.addEventListener('mouseover', handleMouseOver),
+      // );
+
+      function getColor() {
+        let color = localStorage.getItem('color');
+        nav.style.backgroundColor = color;
+        inputButton.value = color;
+      }
+
+      getColor();
+
+      function saveColor(color) {
+        localStorage.setItem('color', color);
+      }
+      function changeColor(e) {
+        saveColor(e.target.value);
+        nav.style.backgroundColor = e.target.value;
+      }
+
+      inputButton.addEventListener('input', changeColor);
+    </script>
+  </body>
+</html>
