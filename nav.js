@@ -7,9 +7,6 @@
 
       let currentState = false;
       function displayNav() {
-        let color = localStorage.getItem('color');
-        navBox.style.backgroundColor - color;
-        navBox.style.backgroundColor = color;
         if (!currentState) {
           currentState = true;
           navBox.style.visibility = 'visible';
@@ -24,6 +21,7 @@
       function getColor() {
         let color = localStorage.getItem('color');
         nav.style.backgroundColor = color;
+        navBox.style.backgroundColor = color;
         inputButton.value = color;
       }
 
